@@ -8,7 +8,8 @@ const Navbar = () => {
         </li>
         <li><a>Item 3</a></li></>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar fixed bg-base-100 z-10 bg-black  bg-opacity-30 text-white">
+
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
