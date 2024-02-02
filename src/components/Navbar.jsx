@@ -8,7 +8,7 @@ const Navbar = () => {
         </li>
         <li><a>Item 3</a></li></>
     return (
-        <div className="navbar fixed bg-base-100 z-10 bg-black  bg-opacity-30 text-white">
+        <div className="navbar fixed bg-base-100 z-10 bg-black  bg-opacity-30 max-w-screen-xl text-white">
 
             <div className="navbar-start">
                 <div className="dropdown">
