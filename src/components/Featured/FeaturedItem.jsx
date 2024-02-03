@@ -7,7 +7,7 @@ const FeaturedItem = () => {
         <div className='bg-cover text-white ' style={{backgroundImage: `url(${featuredImg})`}}   >
             {/* this is featured  */}
         <Section Heading={"from our menu"} subHeading={"Check it out"}></Section>
-        <div className="flex items-center py-24 px-44 gap-5 my-10 ">
+        <div className="md:flex items-center md:py-24 md:px-44 gap-5 my-10 ">
             <div><img src={featuredImg} alt="" /></div>
             <div >
                 <h3>{moment().format('ll')}</h3>
