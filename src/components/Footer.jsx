@@ -18,7 +18,7 @@ const Footer = () => {
                     </div>
                 </nav>
             </div>
-            <div className="footer footer-center p-4 bg-base-300 text-base-content">
+            <div className="footer footer-center p-4 bg-black text-white">
                 <aside>
                     <p>Copyright © {moment().format('yyyy')} - All right reserved by ACME Industries Ltd</p>
                 </aside>
