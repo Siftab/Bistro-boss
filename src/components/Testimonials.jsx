@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import Section from "./Section";
+import { FaQuoteLeft } from "react-icons/fa";
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { data } from "autoprefixer";
+// import { data } from "autoprefixer";
 const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
@@ -21,8 +22,11 @@ const Testimonials = () => {
             <Section Heading="testimonials" subHeading="What Our lients Says"></Section>
             reviews{reviews.length}
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                {reviews.map(review => <SwiperSlide key={review._id}><div className="text-center"> 
+                {reviews.map(review => <SwiperSlide key={review._id}><div className="text-center py-40"> 
 
+                    {/* <span className=" text-8xl  "></span>
+                     */}
+                     <FaQuoteLeft className="text-center text-8xl mx-auto"/>
                     <p className="text-xl px-16">{review.details}</p>
                     <h1 className="text-[#CD9003] text-3xl ">{review.name}</h1>
                 </div></SwiperSlide>)}</Swiper>
