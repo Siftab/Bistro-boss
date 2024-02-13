@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import Section from "./Section";
+import { Rating } from '@smastrom/react-rating'
+
+import '@smastrom/react-rating/style.css'
 import { FaQuoteLeft } from "react-icons/fa";
 
 import 'swiper/css';
@@ -22,11 +25,15 @@ const Testimonials = () => {
             <Section Heading="testimonials" subHeading="What Our lients Says"></Section>
             reviews{reviews.length}
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-                {reviews.map(review => <SwiperSlide key={review._id}><div className="text-center py-40"> 
+                {reviews.map(review => <SwiperSlide key={review._id}><div className="text-center py-40">
+                   <div className="flex justify-center "> <Rating
+                        style={{ maxWidth: 180, }}
+                        value={review.rating}
+                        readOnly
+                       
 
-                    {/* <span className=" text-8xl  "></span>
-                     */}
-                     <FaQuoteLeft className="text-center text-8xl mx-auto"/>
+                    /></div>
+                    <FaQuoteLeft className="text-center text-8xl mx-auto my-10" />
                     <p className="text-xl px-16">{review.details}</p>
                     <h1 className="text-[#CD9003] text-3xl ">{review.name}</h1>
                 </div></SwiperSlide>)}</Swiper>
