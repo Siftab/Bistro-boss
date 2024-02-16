@@ -23,7 +23,6 @@ const Testimonials = () => {
     return (
         <div>
             <Section Heading="testimonials" subHeading="What Our lients Says"></Section>
-            reviews{reviews.length}
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
                 {reviews.map(review => <SwiperSlide key={review._id}><div className="text-center py-40">
                    <div className="flex justify-center "> <Rating
