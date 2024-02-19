@@ -4,6 +4,10 @@ import banner3 from '../../assets/menu/banner3.jpg'
 import Section from '../../components/Section';
 import SubMenu from '../../components/SubMenu';
 import chefService from '../../assets/home/chef-service.jpg'
+import dessert_bg from '../../assets/menu/dessert-bg.jpeg'
+import pizza_bg from '../../assets/menu/pizza-bg.jpg'
+import salad_bg from '../../assets/menu/salad-bg.jpg'
+import soup_bg from '../../assets/menu/soup-bg.jpg'
 import { useEffect, useState } from 'react';
 import useMenu from '../../Hooks/useMenu';
 
@@ -54,14 +58,14 @@ const Menu = () => {
             <CoverImg img={banner3} heading="our menu" subHeading="would you like to try a dish"></CoverImg>
             <Section Heading="todays offer" subHeading="Don't miss"></Section>
             <SubMenu items={items}></SubMenu>
-            <CoverImg img={chefService} heading="desserts" ></CoverImg>
+            <CoverImg img={dessert_bg} heading="desserts" ></CoverImg>
             <SubMenu items={desserts}></SubMenu>
 
-            <CoverImg img={chefService} heading="pizza" ></CoverImg>
+            <CoverImg img={pizza_bg} heading="pizza" ></CoverImg>
             <SubMenu items={pizza}></SubMenu>
-            <CoverImg img={chefService} heading="salads" ></CoverImg>
+            <CoverImg img={salad_bg} heading="salads" ></CoverImg>
             <SubMenu items={salad}></SubMenu>
-            <CoverImg img={chefService} heading="soups" ></CoverImg>
+            <CoverImg img={soup_bg} heading="soups" ></CoverImg>
             <SubMenu items={soup}></SubMenu>
 
 

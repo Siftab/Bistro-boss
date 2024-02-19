@@ -15,6 +15,7 @@ const Home = () => {
           <Banner></Banner> 
           <Category></Category>
           <SecnondBanner></SecnondBanner>
+          {/* problem hEre */}
           <PopularMenu></PopularMenu>
           <CallUs></CallUs>
           <FeaturedItem></FeaturedItem>
