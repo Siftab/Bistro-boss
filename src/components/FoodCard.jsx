@@ -13,7 +13,7 @@ const FoodCard = ({item}) => {
           <h2 className="card-title">{name}</h2>
           <p>{recipe}</p>
           <div className="flex justify-center">
-            <button className="btn btn-primary">Add to cart</button>
+            <button className="btn bg-black text-yellow-600 border-b-4 border-yellow-600">Add to cart</button>
           </div>
         </div>
       </div>

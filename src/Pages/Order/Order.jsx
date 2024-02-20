@@ -5,6 +5,7 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import FoodCard from '../../components/FoodCard';
 import { useLoaderData } from 'react-router-dom';
+import OrderTab from '../../components/OrderTab';
 
 const Order = () => {
     const menu = useLoaderData();
@@ -28,39 +29,22 @@ const Order = () => {
         <Tab>Drinks</Tab>
       </TabList>
       <TabPanel>
-        <div className='grid grid-cols-3 gap-6'>
-            {
-                salad.map(item=> 
-                    <FoodCard key={item._id} item={item}></FoodCard>)
-            }
-        </div>
+            <OrderTab data={salad}></OrderTab>
       </TabPanel>
 
       <TabPanel>
-      <div className='grid grid-cols-3 gap-6'>{
-                pizza.map(item=> 
-                    <FoodCard key={item._id} item={item}></FoodCard>)
-            }</div>
+      <OrderTab data={pizza}></OrderTab>
       </TabPanel>
 
       <TabPanel>
-      <div className='grid grid-cols-3 gap-6'>{
-                soup.map(item=> 
-                    <FoodCard key={item._id} item={item}></FoodCard>)
-            }</div>
+      <OrderTab data={soup}></OrderTab>
       </TabPanel>
 
       <TabPanel>
-        <div className='grid grid-cols-3 gap-6'>{
-                desserts.map(item=> 
-                    <FoodCard key={item._id} item={item}></FoodCard>)
-            }</div>
+      <OrderTab data={desserts}></OrderTab>
       </TabPanel>
       <TabPanel>
-      <div className='grid grid-cols-3 gap-6'>{
-                drinks.map(item=> 
-                    <FoodCard key={item._id} item={item}></FoodCard>)
-            }</div>
+      <OrderTab data={drinks}></OrderTab>
       </TabPanel>
     </Tabs>
         </div>
