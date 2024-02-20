@@ -17,7 +17,7 @@ export const myRoutes = createBrowserRouter([{
             element:<Menu></Menu>
         },
         {
-            path: '/order',
+            path: '/order/:title',
             element:<Order></Order>,
             loader:()=>fetch('/public/menu.json')
         }

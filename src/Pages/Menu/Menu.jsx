@@ -59,14 +59,14 @@ const Menu = () => {
             <Section Heading="todays offer" subHeading="Don't miss"></Section>
             <SubMenu items={items}></SubMenu>
             <CoverImg img={dessert_bg} heading="desserts" ></CoverImg>
-            <SubMenu items={desserts}></SubMenu>
+            <SubMenu items={desserts} title="desserts"></SubMenu>
 
             <CoverImg img={pizza_bg} heading="pizza" ></CoverImg>
-            <SubMenu items={pizza}></SubMenu>
+            <SubMenu items={pizza} title="pizza"></SubMenu>
             <CoverImg img={salad_bg} heading="salads" ></CoverImg>
-            <SubMenu items={salad}></SubMenu>
+            <SubMenu items={salad} title="salads"> </SubMenu>
             <CoverImg img={soup_bg} heading="soups" ></CoverImg>
-            <SubMenu items={soup}></SubMenu>
+            <SubMenu items={soup} title="soups"></SubMenu>
 
 
         </div>
