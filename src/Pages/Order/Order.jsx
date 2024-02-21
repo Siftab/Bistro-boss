@@ -5,9 +5,12 @@ import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useLoaderData, useParams } from 'react-router-dom';
 import OrderTab from '../../components/OrderTab';
+import { Helmet } from 'react-helmet-async';
 
 const Order = () => {
+  // order must be maintain by tab serial otherwise it will work worng direction
   const categories= ["salads","pizza","soups","desserts","drink"]
+  
     const {title} =useParams();
     const [tabIndex,setTabIndex]=useState(categories.indexOf(title));
 
@@ -28,6 +31,7 @@ const Order = () => {
     console.log(title)
     return (
         <div>
+          <Helmet><title>Bistro  boss|| Order</title></Helmet>
             <CoverImg img={orderIMG} heading="Shop" subHeading=''></CoverImg>
             
     <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
