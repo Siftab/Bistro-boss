@@ -3,6 +3,8 @@ import Home from "../Pages/Home";
 import MainLayout from "../MainLayOut/MainLayout";
 import Menu from "../Pages/Menu/Menu";
 import Order from "../Pages/Order/Order";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
 
 export const myRoutes = createBrowserRouter([{
     path:'/',
@@ -20,6 +22,13 @@ export const myRoutes = createBrowserRouter([{
             path: '/order/:title',
             element:<Order></Order>,
             loader:()=>fetch('/public/menu.json')
+        },{
+            path:'/login',
+            element:<Login></Login>
+        }
+        ,{
+            path:'/register',
+            element:<Register></Register>
         }
     ]
 }])
