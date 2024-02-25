@@ -11,6 +11,7 @@ const Login = () => {
     <div className="text-center lg:text-left">
     <img src={banner} alt="" />    </div>
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-transparent">
+        <h1 className="text-5xl text-center font-bold">login</h1>
       <form className="card-body" onSubmit={handleSubmit}>
         <div className="form-control">
           <label className="label">
