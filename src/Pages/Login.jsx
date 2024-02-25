@@ -3,7 +3,12 @@ import bgIMG from "../assets/others/authentication.png"
 const Login = () => {
     const handleSubmit=e=>{
         e.preventDefault();
-        console.log("working")
+
+            const form = e.target;
+            const email = form.email.value;
+            const password = form.password.value;
+            console.log(email,password)
+
     }
     return (
         <div className="hero min-h-screen " style={{backgroundImage: `url(${bgIMG})`}}>
@@ -17,13 +22,13 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Email</span>
           </label>
-          <input type="email" placeholder="email" className="input input-bordered" required />
+          <input type="email" name="email" placeholder="email" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" placeholder="password" className="input input-bordered" required />
+          <input type="password" placeholder="password"  name="password" className="input input-bordered" required />
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
