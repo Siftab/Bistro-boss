@@ -1,6 +1,16 @@
 import banner from "../assets/others/authentication2.png"
 import bgIMG from "../assets/others/authentication.png"
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { useEffect, useRef, useState } from "react";
+
+
+
 const Login = () => {
+  const capRef=useRef(null);
+  const [disable,setDisabled]=useState(true);
+    useEffect(()=>{
+        loadCaptchaEnginge(5); 
+    },[])
     const handleSubmit=e=>{
         e.preventDefault();
 
@@ -8,6 +18,20 @@ const Login = () => {
             const email = form.email.value;
             const password = form.password.value;
             console.log(email,password)
+
+    }
+    const handleValidateCaptcha=()=>{
+      console.log(capRef.current.value)
+      if (validateCaptcha(capRef.current.value)==true) {
+        // alert('Captcha Matched');
+        setDisabled(false);
+    }
+
+    else {
+      setDisabled(true);
+    }
+        
+        
 
     }
     return (
@@ -33,8 +57,16 @@ const Login = () => {
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
           </label>
         </div>
-        <div className="form-control mt-6">
-          <button className="btn bg-[#D1A054B3] text-white " type="submit">Sign In</button>
+        <div className="form-control">
+          <label className="label">
+          <LoadCanvasTemplate />
+          </label>
+          <input type="text" placeholder="type here " ref={capRef} name="captcha" className="input input-bordered"  />
+          <button className="btn-outline btn-xs" onClick={handleValidateCaptcha} >chk</button>
+          
+        </div>
+        <div className="form-control mt-6" >
+          <button className="btn bg-[#D1A054B3] text-white " type="submit" disabled={disable}>Sign In</button>
           
         </div>
       </form>
