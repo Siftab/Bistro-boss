@@ -2,11 +2,15 @@ import React, { useContext, useRef, useState } from 'react';
 import banner from "../assets/others/authentication2.png"
 import bgIMG from "../assets/others/authentication.png"
 import { AuthContext } from '../Providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { updateProfile } from 'firebase/auth';
+import { auth } from '../Firebase/firebase.config';
 
 const Register = () => { 
-    const {createUser} =useContext(AuthContext) 
+
+    const {createUser,setUser,user} =useContext(AuthContext) 
+    const navigate=useNavigate();
     
       const handleSubmit=e=>{
           e.preventDefault();
@@ -14,10 +18,18 @@ const Register = () => {
               const form = e.target;
               const email = form.email.value;
               const password = form.password.value;
-              console.log(email,password)
+              const name = form.name.value;
+              const image = form.image.value;
+              console.log(email,password,name,image)
               createUser(email,password)
-              .then(res=>{console.log(res.user)
-                                    alert('succesfull   ')})
+              .then(res=>{console.log(res)
+                updateProfile(auth.currentUser,{
+                  displayName:name,photoURL:image
+                })
+                .then(()=>{setUser({...user,displayName:name,photoURL:image});
+              navigate('/')})
+                .catch(err=>console.log(err))
+                                   })
               .catch(err=>console.log(err))
   
       }
@@ -30,6 +42,18 @@ const Register = () => {
       <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-transparent">
           <h1 className="text-5xl text-center font-bold">Register</h1>
         <form className="card-body" onSubmit={handleSubmit}>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Name</span>
+            </label>
+            <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
+          </div>
+          <div className="form-control">
+            <label className="label">
+              <span className="label-text">Image</span>
+            </label>
+            <input type="text" name="image" placeholder="Image" className="input input-bordered" required />
+          </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text">Email</span>
@@ -47,7 +71,7 @@ const Register = () => {
           </div>
         
           <div className="form-control mt-6" >
-            <button className="btn bg-[#D1A054B3] text-white " type="submit" >Sign In</button>
+            <button className="btn bg-[#D1A054B3] text-white " type="submit" >Register</button>
             
           </div>
           <p className="text-center">Already  have account <Link to="/login" ><span className="text-[#D1A054B3] font-semibold">Login</span></Link></p>

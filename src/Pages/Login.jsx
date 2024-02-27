@@ -1,6 +1,6 @@
 import banner from "../assets/others/authentication2.png"
 import bgIMG from "../assets/others/authentication.png"
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { useContext, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 const Login = () => {
   const capRef=useRef(null);
   const [disable,setDisabled]=useState(true);
-  const {login,loadng} =useContext(AuthContext);
+  const {login,} =useContext(AuthContext);
   const location =useLocation();
   const navigate= useNavigate();
   console.log(location)
