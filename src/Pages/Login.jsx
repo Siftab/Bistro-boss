@@ -1,14 +1,21 @@
 import banner from "../assets/others/authentication2.png"
 import bgIMG from "../assets/others/authentication.png"
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
-import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
+import Swal from "sweetalert2";
 
 
 
 const Login = () => {
   const capRef=useRef(null);
   const [disable,setDisabled]=useState(true);
+  const {login,loadng} =useContext(AuthContext);
+  const location =useLocation();
+  const navigate= useNavigate();
+  console.log(location)
     useEffect(()=>{
         loadCaptchaEnginge(5); 
     },[])
@@ -19,6 +26,15 @@ const Login = () => {
             const email = form.email.value;
             const password = form.password.value;
             console.log(email,password)
+            login(email,password)
+            .then(res=>{console.log(res.user)
+              Swal.fire({
+                title: "Login Succesfull",
+                icon: "success"
+              });
+            navigate(location.state? location.state : "/")
+            })
+            .catch(err=>console.log(err))
 
     }
     const handleValidateCaptcha=()=>{
@@ -69,11 +85,15 @@ const Login = () => {
           <button className="btn bg-[#D1A054B3] text-white " type="submit" disabled={disable}>Sign In</button>
           
         </div>
-        <p className="text-center">dont have account <Link to="/register" ><span>Rgister Now</span></Link></p>
+        <p className="text-center">dont have account <Link to="/register" ><span className="text-[#D1A054B3] font-semibold">Rgister Now</span></Link></p>
       </form>
     </div>
   </div>
+  <Helmet>
+        <title>Bistro boss|| Login</title>
+     </Helmet>
 </div>
+
     );
 };
 
