@@ -21,8 +21,8 @@ const Navbar = () => {
         {
             user? <li ><button onClick={handleLogOut} className=''>LogOut</button></li>:<li><Link to="/login">Login</Link></li>
         }
-        <div>{user&& <p>{user.displayName}</p>}
-        {user&& <img src={user.photoURL} className='h-10'></img>}</div>
+        <div className='flex items-center'>{user&& <p>{user.displayName}</p>}
+        {user&& <img src={user.photoURL} className='h-10 rounded-full'></img>}</div>
         </>
         
     return (

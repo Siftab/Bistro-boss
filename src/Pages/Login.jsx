@@ -85,7 +85,7 @@ const Login = () => {
           <button className="btn bg-[#D1A054B3] text-white " type="submit" disabled={disable}>Sign In</button>
           
         </div>
-        <p className="text-center">dont have account <Link to="/register" ><span className="text-[#D1A054B3] font-semibold">Rgister Now</span></Link></p>
+        <p className="text-center">dont have account <Link to="/register" ><span className="text-[#D1A054B3] font-semibold">Register Now</span></Link></p>
       </form>
     </div>
   </div>
