@@ -1,15 +1,24 @@
 import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Providers/AuthProvider';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const FoodCard = ({item}) => {
   const {user}=useContext(AuthContext);
     const {name,recipe,image,_id,price}=item;
     const navigate= useNavigate();
+    const location=useLocation()
     const addToCart =food=>{
      if(user){
-//  
+        axios.post('http://localhost:5000/carts',
+        
+        {
+          itemId: _id,
+          emailId:user.email
+
+        })
+        .then(res=>console.log(res.data))
      }
      else{
       Swal.fire({
@@ -27,7 +36,7 @@ const FoodCard = ({item}) => {
           //   text: "Your file has been deleted.",
           //   icon: "success"
           // });
-          navigate('/login')
+          navigate('/login', {state:location?.pathname})
         }
       });
      }
