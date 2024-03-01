@@ -3,9 +3,11 @@ import Swal from 'sweetalert2';
 import { AuthContext } from '../Providers/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import useCart from '../Hooks/useCart';
 
 const FoodCard = ({item}) => {
   const {user}=useContext(AuthContext);
+  const [,refetch]=useCart();
     const {name,recipe,image,_id,price}=item;
     const navigate= useNavigate();
     const location=useLocation()
@@ -18,7 +20,8 @@ const FoodCard = ({item}) => {
           emailId:user.email
 
         })
-        .then(res=>console.log(res.data))
+        .then(res=>{console.log(res.data);
+                     refetch(); })
      }
      else{
       Swal.fire({
