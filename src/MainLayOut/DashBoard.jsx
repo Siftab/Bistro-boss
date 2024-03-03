@@ -3,6 +3,9 @@ import { NavLink, Outlet } from 'react-router-dom';
 import { FaCalendarAlt, FaHome, FaShoppingCart, FaWallet } from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
 import { BiCalendarStar } from "react-icons/bi";
+import { IoHome, IoMenu } from "react-icons/io5";
+import {  IoMdMail } from "react-icons/io";
+import { FaShop } from "react-icons/fa6";
 const DashBoard = () => {
     const navLinks=<>
                
@@ -21,10 +24,15 @@ const DashBoard = () => {
                     <h1 className='font-black text-2xl'>Bistro Boss</h1>
                     <p className='font-bold text-lg  tracking-[3px]'>restaurents</p>
                 </div>
-                <ul className='menu '>
+                <ul className='menu space-y-3'>
                 {
                     navLinks
-                }
+                } 
+                <hr />
+                <li><NavLink to='/'><IoHome></IoHome>Home</NavLink></li>
+                <li><NavLink to='/menu'><IoMenu></IoMenu>Menu</NavLink></li>
+                <li><NavLink to='/order/salads'><FaShop></FaShop> Shop</NavLink></li>
+                <li><NavLink to='/contact'><IoMdMail></IoMdMail>Contact</NavLink></li>
                 </ul>
             </div>
             <div>
