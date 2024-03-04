@@ -35,7 +35,7 @@ const DashBoard = () => {
                 <li><NavLink to='/contact'><IoMdMail></IoMdMail>Contact</NavLink></li>
                 </ul>
             </div>
-            <div>
+            <div className='w-full p-5'>
                 <Outlet></Outlet>
             </div>
             

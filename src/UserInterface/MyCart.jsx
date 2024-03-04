@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useCart from '../Hooks/useCart'
 import useFindFromMenu from '../Hooks/useFindFromMenu';
 import useAxios from '../Hooks/useAxios';
+import CartTable from './CartTable';
 const MyCart = () => {
     const AxiosSecure= useAxios()
     const cartID=[];
@@ -23,10 +24,13 @@ const MyCart = () => {
 
 
     return (
-        <div>
+        <div >
+            <div className='flex justify-evenly cinzel'>
             <h1 className='text-4xl'>total Order:{cart.length}</h1>
             <h1 className='text-4xl'>total price:{totalPrice}</h1>
-            <button className='btn btn-primary'>pay</button>
+            <button className='btn bg-[#D1A054] text-white'>pay</button>
+            </div>
+            <CartTable></CartTable>
 
         </div>
     );
