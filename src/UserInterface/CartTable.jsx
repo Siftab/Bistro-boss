@@ -1,7 +1,7 @@
 import React from 'react';
 import CartTableRow from './CartTableRow';
 
-const CartTable = () => {
+const CartTable = ({items}) => {
     return (
         <div className="overflow-x-auto">
   <table className="table">
@@ -18,8 +18,9 @@ const CartTable = () => {
       </tr>
     </thead>
     <tbody>
-      {/* row 1 */}
-      <CartTableRow></CartTableRow>
+      {
+       items.map(item=><CartTableRow key={item._id} item={item}></CartTableRow>)
+      }
     
     </tbody>
     {/* foot

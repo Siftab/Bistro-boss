@@ -30,7 +30,7 @@ const MyCart = () => {
             <h1 className='text-4xl'>total price:{totalPrice}</h1>
             <button className='btn bg-[#D1A054] text-white'>pay</button>
             </div>
-            <CartTable></CartTable>
+            <CartTable items={cartItemsDetails}></CartTable>
 
         </div>
     );
