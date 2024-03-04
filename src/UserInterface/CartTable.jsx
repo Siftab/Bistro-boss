@@ -7,7 +7,9 @@ const CartTable = ({items}) => {
   <table className="table">
     {/* head */}
     <thead>
-      <tr>
+      <tr className='bg-[#D1A054] text-white h-20 ' style={{
+        borderRadius:'20px 20px 0px 0px'
+      }}>
         <th>
          
         </th>
@@ -19,7 +21,7 @@ const CartTable = ({items}) => {
     </thead>
     <tbody>
       {
-       items.map(item=><CartTableRow key={item._id} item={item}></CartTableRow>)
+       items.map((item,idx)=><CartTableRow key={item._id} item={item} idx={idx}></CartTableRow>)
       }
     
     </tbody>

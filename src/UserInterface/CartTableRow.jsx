@@ -2,12 +2,12 @@ import React from 'react';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { TbCurrencyTaka } from "react-icons/tb";
 
-const CartTableRow = ({item}) => {
+const CartTableRow = ({item,idx}) => {
     const{name,image,price}= item;
     return (
         <tr>
         <th>
-          
+          {idx+1}
         </th>
         <td>
         <img src={image} alt="" className='w-20 rounded-2xl' />
