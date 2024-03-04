@@ -1,7 +1,8 @@
 import React from 'react';
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { TbCurrencyTaka } from "react-icons/tb";
 
-const CartTableRow = () => {
+const CartTableRow = ({item}) => {
     return (
         <tr>
         <th>
@@ -13,7 +14,7 @@ const CartTableRow = () => {
         <td>
           kala Bhuna
         </td>
-        <td>Purple</td>
+        <td ><p className='flex items-center'> taka <TbCurrencyTaka></TbCurrencyTaka></p></td>
         <th>
           <button className="btn bg-red-600 text-white"><RiDeleteBin6Line></RiDeleteBin6Line></button>
         </th>
