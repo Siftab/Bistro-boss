@@ -17,7 +17,7 @@ const MyCart = () => {
     AxiosSecure.post('/cart/information',cartID)
    .then(res=>{setCartItemDetails(res.data)
                     })
-   },[])
+   },[cart])
    console.log('details image',cartItemsDetails)
    console.log('total',totalPrice)
 

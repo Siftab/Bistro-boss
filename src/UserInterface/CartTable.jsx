@@ -5,9 +5,9 @@ const CartTable = ({items}) => {
     return (
         <div className="overflow-x-auto">
   <table className="table">
-    {/* head */}
-    <thead>
-      <tr className='bg-[#D1A054] text-white h-20 ' style={{
+    {/* he ad */}
+    <thead className='bg-[#D1A054]'>
+      <tr className=' text-white h-20 rounded-t-lg ' style={{
         borderRadius:'20px 20px 0px 0px'
       }}>
         <th>
