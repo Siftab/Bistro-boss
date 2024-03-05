@@ -8,6 +8,7 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../Firebase/firebase.config';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import GoogleButton from '../components/GoogleButton';
 
 const Register = () => { 
 
@@ -93,6 +94,8 @@ const Register = () => {
           </div>
           <p className="text-center">Already  have account <Link to="/login" ><span className="text-[#D1A054B3] font-semibold">Login</span></Link></p>
         </form>
+        <GoogleButton></GoogleButton>
+
       </div>
     </div>
      <Helmet>
