@@ -6,11 +6,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../Firebase/firebase.config';
+import useAxiosPublic from '../Hooks/useAxiosPublic';
+import Swal from 'sweetalert2';
 
 const Register = () => { 
 
     const {createUser,setUser,user} =useContext(AuthContext) 
     const navigate=useNavigate();
+    const AxiosPublic=useAxiosPublic()
     
       const handleSubmit=e=>{
           e.preventDefault();
@@ -23,10 +26,24 @@ const Register = () => {
               console.log(email,password,name,image)
               createUser(email,password)
               .then(res=>{console.log(res)
+
+                
                 updateProfile(auth.currentUser,{
                   displayName:name,photoURL:image
                 })
-                .then(()=>{setUser({...user,displayName:name,photoURL:image});
+                .then(()=>{setUser({...user,displayName:name,photoURL:image})
+                AxiosPublic.post('/user',{ userName:name,userEmail:email})
+                .then(res=>{
+                  if(res.data.insertedId){
+                    Swal.fire({
+                      position: "center",
+                      icon: "success",
+                      title: "User Added",
+                      showConfirmButton: false,
+                      timer: 1500
+                    });
+                  }
+                });
               navigate('/')})
                 .catch(err=>console.log(err))
                                    })

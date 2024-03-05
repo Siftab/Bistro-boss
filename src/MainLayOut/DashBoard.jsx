@@ -6,11 +6,13 @@ import { BiCalendarStar } from "react-icons/bi";
 import { IoHome, IoMenu } from "react-icons/io5";
 import {  IoMdMail } from "react-icons/io";
 import { FaShop } from "react-icons/fa6";
+import useCart from '../Hooks/useCart';
 const DashBoard = () => {
+    const [cart]=useCart();
     const navLinks=<>
                
                     <li><NavLink to='/dashBoard/home'><FaHome></FaHome> User Home</NavLink></li>
-                    <li><NavLink to='/dashBoard/cart'><FaShoppingCart></FaShoppingCart> Cart</NavLink></li>
+                    <li><NavLink to='/dashBoard/cart'><FaShoppingCart></FaShoppingCart> Cart({cart.length})</NavLink></li>
                     <li><NavLink to='/dashBoard/reservation'> <FaCalendarAlt></FaCalendarAlt> Reservation</NavLink></li>
                     <li><NavLink to='/dashBoard/reservation'><FaWallet></FaWallet> Payment System</NavLink></li>
                     <li><NavLink to='/dashBoard/reservation'> <MdReviews></MdReviews> Add Review</NavLink></li>
