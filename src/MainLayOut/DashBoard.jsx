@@ -8,6 +8,8 @@ import {  IoMdMail } from "react-icons/io";
 import { FaShop } from "react-icons/fa6";
 import useCart from '../Hooks/useCart';
 const DashBoard = () => {
+    // Todo: set Admin latter
+    const isAdmin = true
     const [cart]=useCart();
     const navLinks=<>
                
