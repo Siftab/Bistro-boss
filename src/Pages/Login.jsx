@@ -6,6 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import GoogleButton from '../components/GoogleButton'
 
 
 
@@ -87,6 +88,7 @@ const Login = () => {
         </div>
         <p className="text-center">dont have account <Link to="/register" ><span className="text-[#D1A054B3] font-semibold">Register Now</span></Link></p>
       </form>
+      <GoogleButton></GoogleButton>
     </div>
   </div>
   <Helmet>

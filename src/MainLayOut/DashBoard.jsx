@@ -1,12 +1,12 @@
-import React from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaCalendarAlt, FaHome, FaShoppingCart, FaWallet } from "react-icons/fa";
+import { FaBook, FaCalendarAlt, FaHome, FaShoppingCart, FaUsers, FaUtensils, FaWallet } from "react-icons/fa";
 import { MdReviews } from "react-icons/md";
 import { BiCalendarStar } from "react-icons/bi";
 import { IoHome, IoMenu } from "react-icons/io5";
 import {  IoMdMail } from "react-icons/io";
 import { FaShop } from "react-icons/fa6";
 import useCart from '../Hooks/useCart';
+import { TfiMenuAlt } from "react-icons/tfi";
 const DashBoard = () => {
     // Todo: set Admin latter
     const isAdmin = true
@@ -16,10 +16,17 @@ const DashBoard = () => {
                     <li><NavLink to='/dashBoard/home'><FaHome></FaHome> User Home</NavLink></li>
                     <li><NavLink to='/dashBoard/cart'><FaShoppingCart></FaShoppingCart> Cart({cart.length})</NavLink></li>
                     <li><NavLink to='/dashBoard/reservation'> <FaCalendarAlt></FaCalendarAlt> Reservation</NavLink></li>
-                    <li><NavLink to='/dashBoard/reservation'><FaWallet></FaWallet> Payment System</NavLink></li>
-                    <li><NavLink to='/dashBoard/reservation'> <MdReviews></MdReviews> Add Review</NavLink></li>
-                    <li><NavLink to='/dashBoard/reservation'> <BiCalendarStar></BiCalendarStar> My Booking</NavLink></li>
+                    <li><NavLink to='/dashBoard/paymentSystem'><FaWallet></FaWallet> Payment System</NavLink></li>
+                    <li><NavLink to='/dashBoard/addReview'> <MdReviews></MdReviews> Add Review</NavLink></li>
+                    <li><NavLink to='/dashBoard/myBooking'> <BiCalendarStar></BiCalendarStar> My Booking</NavLink></li>
                
+    </>
+    const adminNavLinks=<>
+                     <li><NavLink to='/dashBoard/adminHome'><FaHome></FaHome> Admin Home</NavLink></li>
+                    <li><NavLink to='/dashBoard/addItems'><FaUtensils></FaUtensils> Add Items</NavLink></li>
+                    <li><NavLink to='/dashBoard/manageItems'> <TfiMenuAlt></TfiMenuAlt>  Manage Items</NavLink></li>
+                    <li><NavLink to='/dashBoard/manageBooking'><FaBook></FaBook> Manage Bookings </NavLink></li>
+                    <li><NavLink to='/dashBoard/users'><FaUsers></FaUsers> All users </NavLink></li>
     </>
     return (
         <div className='max-w-screen-xl mx-auto flex'>
@@ -30,7 +37,7 @@ const DashBoard = () => {
                 </div>
                 <ul className='menu space-y-3'>
                 {
-                    navLinks
+                   isAdmin? adminNavLinks: navLinks
                 } 
                 <hr />
                 <li><NavLink to='/'><IoHome></IoHome>Home</NavLink></li>
