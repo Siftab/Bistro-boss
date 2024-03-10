@@ -9,11 +9,13 @@ import useCart from '../Hooks/useCart';
 import { TfiMenuAlt } from "react-icons/tfi";
 import { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProvider';
+import useAdmin from '../Hooks/useAdmin';
 const DashBoard = () => {
     // Todo: set Admin latter
     const {user}= useContext(AuthContext)
     console.log(user)
-    const isAdmin =true
+    const [isAdmin] = useAdmin()
+    console.log(isAdmin)
     // const isAdmin =user.role==="Admin"
     const [cart]=useCart();
     const navLinks=<>

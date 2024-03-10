@@ -9,7 +9,6 @@ const MainLayout = () => {
 
    
     const noHeaderFooter =location.pathname.includes("login") || location.pathname.includes("register");
-    console.log(noHeaderFooter)
     return (
         <div className='max-w-screen-xl mx-auto'>
             {noHeaderFooter ||<Navbar></Navbar>}
