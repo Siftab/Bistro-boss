@@ -8,6 +8,7 @@ const MyCart = () => {
     const cartID=[];
     const [cart]=useCart();
     const [cartItemsDetails,setCartItemDetails]=useState([]);
+    console.log(cart,cartItemsDetails)
     // const totalPrice = cart.reduce((sum,item)=>{sum+item.price ;
     //                                                         },0)
     cart.map(item=>cartID.push(item.itemId))

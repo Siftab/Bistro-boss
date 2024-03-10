@@ -1,11 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext } from 'react';
 import useAxios from '../Hooks/useAxios';
 import { FaTrash, FaUser, FaUsers } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { updateCurrentUser, updateProfile } from 'firebase/auth';
+import { auth } from '../Firebase/firebase.config';
+import { AuthContext } from '../Providers/AuthProvider';
 
 const AllUsers = () => {
     const AxiosSecure = useAxios()
+    const {setUser,user}=useContext(AuthContext)
     const { data: users = [] ,refetch} = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
@@ -14,6 +18,7 @@ const AllUsers = () => {
                 Authorization:  `Bearer ${localStorage.getItem('access-token')}`
 
             }});
+            console.log(res.data)
             return res.data
 
         }
@@ -34,6 +39,13 @@ const AllUsers = () => {
               .then(res=>{
                 console.log(res.data)
                 if(res.data.modifiedCount>0){
+                    updateProfile(auth.currentUser,{
+                        role:"Admin"
+                    })
+                    .then(res=>{
+                        setUser({...user, role:"Admin"})
+
+                    })
                     Swal.fire({
                         title: "Admin!",
                         text: "he is Admin now",
@@ -72,6 +84,7 @@ const AllUsers = () => {
                                 text: "Your file has been deleted.",
                                 icon: "success"
                               });
+                              refetch();
                         }
                     })
             }

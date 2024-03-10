@@ -7,9 +7,14 @@ import {  IoMdMail } from "react-icons/io";
 import { FaShop } from "react-icons/fa6";
 import useCart from '../Hooks/useCart';
 import { TfiMenuAlt } from "react-icons/tfi";
+import { useContext } from 'react';
+import { AuthContext } from '../Providers/AuthProvider';
 const DashBoard = () => {
     // Todo: set Admin latter
-    const isAdmin = true
+    const {user}= useContext(AuthContext)
+    console.log(user)
+    const isAdmin =true
+    // const isAdmin =user.role==="Admin"
     const [cart]=useCart();
     const navLinks=<>
                
